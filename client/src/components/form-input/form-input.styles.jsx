@@ -4,6 +4,7 @@ const subColor = 'grey';
 const mainColor = 'black';
 
 export const Group = styled.div`
+  width: 100%;
   margin-bottom: 15px;
   input[type='password'] {
     letter-spacing: 0.3em;
@@ -23,7 +24,6 @@ export const FormInput = styled.input`
   color: ${subColor};
   font-size: 18px;
   padding: 10px 10px 10px 5px;
-  /* display: block; */
   width: 100%;
   border: none;
   border-radius: 0;

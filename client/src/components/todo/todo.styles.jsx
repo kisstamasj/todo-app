@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export const Title = styled.div``;
+
 export const TodoContainer = styled.div`
   display: flex;
   border: 1px solid #ccc;
@@ -16,6 +18,11 @@ export const TodoContainer = styled.div`
     background-color: rgba(92, 169, 4, 1);
     border: 1px solid #fff;
     color: #fff;
+
+    & ${Title} {
+      text-decoration: line-through;
+    }
+
     &:hover {
       background-color: rgba(92, 169, 4, 0.8);
       color: #fff;
@@ -29,7 +36,5 @@ export const TodoContainer = styled.div`
 `;
 
 export const Mark = styled.div``;
-
-export const Title = styled.div``;
 
 export const ControlsContainer = styled.div``;

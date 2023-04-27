@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const BaseButton = styled.button`
   min-width: 165px;
-  width: 100%;
+  /* width: 100%; */
   height: 40px;
   letter-spacing: 0.5px;
   line-height: 40px;
@@ -14,13 +14,13 @@ export const BaseButton = styled.button`
   font-weight: bolder;
   border: none;
   cursor: pointer;
-  /* display: flex; */
   justify-content: center;
   font-weight: 100;
   transition: 300ms ease all;
   &:hover {
     background-color: white;
     border: 1px solid black;
+    color: #000;
   }
 `;
 
@@ -30,6 +30,7 @@ export const PrimaryButton = styled(BaseButton)`
   &:hover {
     background-color: #357ae8;
     border: none;
+    color: #fff;
   }
 `;
 

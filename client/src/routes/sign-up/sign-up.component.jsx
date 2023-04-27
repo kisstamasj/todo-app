@@ -1,23 +1,26 @@
+import { Fragment } from 'react';
 import Button from '../../components/button/button.component';
 import FormInput from '../../components/form-input/form-input.component';
-import { SignUpContainer } from './sign-up.styles';
+import Form from '../../components/form/form.component';
+import H4 from '../../components/h4/h4.component';
 
 const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
   return (
-    <SignUpContainer>
+    <Fragment>
       <h1>Sign up</h1>
-      <form onSubmit={handleSubmit}>
+      <H4>Create your account</H4>
+      <Form onSubmit={handleSubmit}>
         <FormInput required type='email' label={'Email'} />
         <FormInput required type='password' label={'Password'} />
         <FormInput required type='password' label={'Confirm password'} />
-        <Button buttonType={'success'} type='submit'>
+        <Button buttonType={'primary'} type='submit'>
           Sign up
         </Button>
-      </form>
-    </SignUpContainer>
+      </Form>
+    </Fragment>
   );
 };
 

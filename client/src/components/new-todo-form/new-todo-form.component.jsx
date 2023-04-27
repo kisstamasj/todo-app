@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
 import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
-import { Form, NewFormContainer } from './new-todo-form.styles';
+import { NewFormContainer } from './new-todo-form.styles';
 import { TodosContext } from '../../contexts/todos.context';
 import { v4 as uuid } from 'uuid';
+import Form from '../form/form.component';
 
 const NewTodoForm = () => {
   const { todos, setTodos } = useContext(TodosContext);
@@ -14,7 +15,7 @@ const NewTodoForm = () => {
     const unique_id = uuid();
     const small_id = unique_id.slice(0, 8);
     setTodos([...todos, { id: small_id, title: title, completed: false }]);
-    console.log([...todos, { id: small_id, title: title, completed: false }]);
+    setTitle('');
   };
   return (
     <NewFormContainer>
@@ -26,7 +27,7 @@ const NewTodoForm = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <Button buttonType='primary' type='submit'>
+        <Button buttonType='success' type='submit'>
           Save
         </Button>
       </Form>

@@ -6,9 +6,9 @@ export const AppContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 30px auto;
-  width: 300px;
+  width: 400px;
 
-  @media (max-width: 320px) {
+  @media (max-width: 400px) {
     width: 250px;
   }
 `;

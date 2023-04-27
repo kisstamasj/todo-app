@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const ButtonsContainer = styled.div`
+export const Form = styled.form`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
   justify-content: center;
   align-items: center;
 `;

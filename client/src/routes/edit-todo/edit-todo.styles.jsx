@@ -1,3 +1,7 @@
 import styled from 'styled-components';
 
-export const EditTodoContainer = styled.div``;
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+`;
