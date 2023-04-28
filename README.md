@@ -8,10 +8,12 @@ A felhasználók csak a saját feladataikhoz férnek hozzá
 
 ## Telepítés
 
-### Környezeti változók beállítása
-
+### Függőségek telepítése
 - `backend` mappába lépve terminálból ki kell adni az `npm install` parancsot
 - `client` mappába lépve terminálból ki kell adni az `npm install` parancsot
+
+### Környezeti változók beállítása
+
 - A `backend` és `client` mappában található `.env.example` fájlból létre kell hozni egy-egy `.env` fájlt a backend és a client mappa gyökerébe.
 
 #### backend/.env
