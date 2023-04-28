@@ -4,6 +4,7 @@ import { BsCircle, BsCheck2Circle, BsFillTrashFill } from 'react-icons/bs';
 import { BiEdit } from 'react-icons/bi';
 import { TodosContext } from '../../contexts/todos.context';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Todo = ({ todo }) => {
   const { id, title, completed } = todo;
@@ -11,15 +12,27 @@ const Todo = ({ todo }) => {
   const { todos, setTodos } = useContext(TodosContext);
   const navigate = useNavigate();
 
-  const onTodoClickHandler = (e) => {
+  const onTodoClickHandler = async (e) => {
     e.preventDefault();
-    setTodoCompleted((prev) => !prev);
+    try {
+      const { data } = await axios.put('/api/todos', {
+        todo: { id, title, completed: !completed },
+      });
+      setTodoCompleted((prev) => !prev);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const onDeleteClick = (e) => {
+  const onDeleteClick = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setTodos(todos.filter((t) => t.id !== id));
+    try {
+      const { data } = await axios.delete(`/api/todos/${id}`);
+      setTodos(todos.filter((t) => t.id !== id));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const onEditClick = (e) => {

@@ -7,6 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './contexts/user.context';
 import { TodosProvider } from './contexts/todos.context';
 
+import axios from 'axios';
+import { config } from './config/config';
+axios.defaults.baseURL = config.BACKEND_API_URL;
+axios.defaults.withCredentials = true;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

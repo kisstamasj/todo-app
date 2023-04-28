@@ -17,6 +17,7 @@ export const BaseButton = styled.button`
   justify-content: center;
   font-weight: 100;
   transition: 300ms ease all;
+  border-radius: 3px;
   &:hover {
     background-color: white;
     border: 1px solid black;
