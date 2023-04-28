@@ -17,7 +17,7 @@ Az alkalmazás gyökérkönyvtárába ki kell adni a terminálban a `docker-comp
 A klienst ez után a böngészőben a `http://localhost:3000` útvonalon lehet elérni.
 
 ## API dokumentáció
-A szerver elérési útvonala a `http://localhost:5000` címen található.
+A backend elérési útvonala a `http://localhost:5000` címen található.
 
 | Metódus | Leírás                  | URL                | Tartalom                            | Válasz                      | Státusz kód |
 |---------|-------------------------|--------------------|-------------------------------------|-----------------------------|-------------|
