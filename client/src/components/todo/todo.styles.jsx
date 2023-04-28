@@ -35,7 +35,9 @@ export const TodoContainer = styled.div`
   }
 `;
 
-export const Mark = styled.div``;
+export const Mark = styled.div`
+  display: flex;
+`;
 
 export const ControlsContainer = styled.div`
   display: flex;
