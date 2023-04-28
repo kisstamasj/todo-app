@@ -5,6 +5,7 @@ import { NewFormContainer } from './new-todo-form.styles';
 import { TodosContext } from '../../contexts/todos.context';
 import Form from '../form/form.component';
 import axios from 'axios';
+import { FiSave } from 'react-icons/fi';
 
 const NewTodoForm = () => {
   const { todos, setTodos } = useContext(TodosContext);
@@ -32,7 +33,7 @@ const NewTodoForm = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <Button buttonType='success' type='submit'>
-          Save
+          <FiSave /> Save
         </Button>
       </Form>
     </NewFormContainer>

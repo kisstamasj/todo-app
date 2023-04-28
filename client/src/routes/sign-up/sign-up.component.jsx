@@ -6,7 +6,10 @@ import H4 from '../../components/h4/h4.component';
 import axios from 'axios';
 import { UserContext } from '../../contexts/user.context';
 import Alert from '../../components/alert/alert.component';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { ButtonsContainer } from './sign-up.styles';
+import { FiLogIn } from 'react-icons/fi';
+import { GoAlert } from 'react-icons/go';
 
 const defaultFormFields = {
   email: '',
@@ -27,6 +30,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors('');
     if (formFields.password !== formFields.confirm_password) {
       return setErrors('The password and Confirm password dont match!');
     }
@@ -48,7 +52,7 @@ const SignUp = () => {
     if (currentUser) {
       navigate('/todos');
     }
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   return (
     <Fragment>
@@ -81,10 +85,17 @@ const SignUp = () => {
               onChange={handleChange}
               value={formFields.confirm_password}
             />
-            {errors && <Alert type='danger'>{errors}</Alert>}
-            <Button buttonType={'primary'} type='submit'>
-              Sign up
-            </Button>
+            {errors && (
+              <Alert type='danger'>
+                <GoAlert /> {errors}
+              </Alert>
+            )}
+            <ButtonsContainer>
+              <Link to={'/'}>Back to login</Link>
+              <Button buttonType={'primary'} type='submit'>
+                <FiLogIn /> Sign up
+              </Button>
+            </ButtonsContainer>
           </Form>
         </Fragment>
       )}

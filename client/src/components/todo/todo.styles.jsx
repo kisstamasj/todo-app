@@ -37,4 +37,8 @@ export const TodoContainer = styled.div`
 
 export const Mark = styled.div``;
 
-export const ControlsContainer = styled.div``;
+export const ControlsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;

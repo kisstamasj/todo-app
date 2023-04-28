@@ -30,7 +30,7 @@ const Todo = ({ todo }) => {
     const conf = window.confirm('Are you sure to delete?');
     if (conf) {
       try {
-        const { data } = await axios.delete(`/api/todos/${id}`);
+        await axios.delete(`/api/todos/${id}`);
         setTodos(todos.filter((t) => t.id !== id));
       } catch (error) {
         console.error(error);

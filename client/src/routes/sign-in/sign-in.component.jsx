@@ -8,6 +8,7 @@ import H4 from '../../components/h4/h4.component';
 import { UserContext } from '../../contexts/user.context';
 import axios from 'axios';
 import Alert from '../../components/alert/alert.component';
+import { FiLogIn } from 'react-icons/fi';
 
 const defaultFormFields = {
   email: '',
@@ -30,7 +31,7 @@ const SignIn = () => {
     if (currentUser) {
       navigate('/todos');
     }
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,10 +73,10 @@ const SignIn = () => {
             />
             {errors && <Alert type={'danger'}>{errors}</Alert>}
             <ButtonsContainer>
-              <Button buttonType={'primary'} type='submit'>
-                Sign in
-              </Button>
               <Link to={'/sign-up'}>Sign up here!</Link>
+              <Button buttonType={'primary'} type='submit'>
+                <FiLogIn /> Sign in
+              </Button>
             </ButtonsContainer>
           </Form>
         </Fragment>

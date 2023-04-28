@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 export const BaseButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 5px;
   min-width: 165px;
-  /* width: 100%; */
-  height: 40px;
+  height: 35px;
   letter-spacing: 0.5px;
-  line-height: 40px;
+  line-height: 35px;
   padding: 0 25px 0 25px;
   font-size: 15px;
   background-color: black;
   color: white;
-  text-transform: uppercase;
   font-weight: bolder;
   border: none;
   cursor: pointer;

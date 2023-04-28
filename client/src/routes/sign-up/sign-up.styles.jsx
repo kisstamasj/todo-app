@@ -6,3 +6,12 @@ export const SignUpContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+`;

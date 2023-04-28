@@ -38,14 +38,17 @@ const Todos = () => {
     <Fragment>
       {currentUser && (
         <Fragment>
-          <h2>Todos</h2>
+          <h2>Create new todo</h2>
           <NewTodoForm />
           {!todos.length ? (
             <span>There are no todos</span>
           ) : (
-            <TodosContainer>
-              {todos && todos.map((todo) => <Todo key={todo.id} todo={todo} />)}
-            </TodosContainer>
+            <Fragment>
+              <h2>Todos</h2>
+              <TodosContainer>
+                {todos && todos.map((todo) => <Todo key={todo.id} todo={todo} />)}
+              </TodosContainer>
+            </Fragment>
           )}
         </Fragment>
       )}

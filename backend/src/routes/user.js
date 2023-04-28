@@ -29,7 +29,7 @@ router.post('/api/users/signup', async (req, res) => {
   const existingUser = await User.findOne({ email });
 
   if (existingUser) {
-    throw new RequestValidationError('Email in use');
+    throw new RequestValidationError('The email is already in use');
   }
 
   const hash = Password.toHash(password);

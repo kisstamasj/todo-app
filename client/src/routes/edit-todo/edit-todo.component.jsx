@@ -1,11 +1,12 @@
 import { Fragment, useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import FormInput from '../../components/form-input/form-input.component';
 import Button from '../../components/button/button.component';
 import Form from '../../components/form/form.component';
 import { ButtonsContainer } from './edit-todo.styles';
 import axios from 'axios';
 import { UserContext } from '../../contexts/user.context';
+import { FiSave } from 'react-icons/fi';
 
 const initTodo = {
   id: '',
@@ -30,11 +31,6 @@ const EditTodo = () => {
     fetchTodo();
   }, [todoID]);
 
-  const handleCancelClick = (e) => {
-    e.preventDefault();
-    navigate('/todos');
-  };
-
   const handleUpdateClick = async (e) => {
     e.preventDefault();
     try {
@@ -57,9 +53,9 @@ const EditTodo = () => {
           <Form>
             <FormInput name='title' onChange={handleTitleChange} value={todo.title} />
             <ButtonsContainer>
-              <Button onClick={handleCancelClick}>Cancel</Button>
+              <Link to={'/todos'}>Cancel</Link>
               <Button onClick={handleUpdateClick} buttonType={'success'} type='submit'>
-                Update
+                <FiSave /> Update
               </Button>
             </ButtonsContainer>
           </Form>
