@@ -9,6 +9,7 @@ import { UserContext } from '../../contexts/user.context';
 import axios from 'axios';
 import Alert from '../../components/alert/alert.component';
 import { FiLogIn } from 'react-icons/fi';
+import { GoAlert } from 'react-icons/go';
 
 const defaultFormFields = {
   email: '',
@@ -34,6 +35,7 @@ const SignIn = () => {
   }, [currentUser, navigate]);
 
   const handleSubmit = async (e) => {
+    setErrors('');
     e.preventDefault();
 
     try {
@@ -71,7 +73,11 @@ const SignIn = () => {
               value={formFields.password}
               name='password'
             />
-            {errors && <Alert type={'danger'}>{errors}</Alert>}
+            {errors && (
+              <Alert type={'danger'}>
+                <GoAlert /> {errors}
+              </Alert>
+            )}
             <ButtonsContainer>
               <Link to={'/sign-up'}>Sign up here!</Link>
               <Button buttonType={'primary'} type='submit'>
