@@ -4,6 +4,7 @@
 
 ## Alkalmazás célja
 A felhasználók regisztráció után fel tudnak venni feladatokat. A feladatokat készre lehet jelölni az adott feladatra kattintva. A feladatokat lehet módosatani, a módosítás ikonra kattintva, vagy törölni a törlés ikonra kattintva.
+A felhasználók csak a saját feladataikhoz férnek hozzá
 
 ## Telepítés
 
