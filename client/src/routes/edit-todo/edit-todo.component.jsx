@@ -6,7 +6,6 @@ import Form from '../../components/form/form.component';
 import { ButtonsContainer } from './edit-todo.styles';
 import axios from 'axios';
 import { UserContext } from '../../contexts/user.context';
-import { TodosContext } from '../../contexts/todos.context';
 
 const initTodo = {
   id: '',
@@ -39,8 +38,7 @@ const EditTodo = () => {
   const handleUpdateClick = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put(`/api/todos`, { todo });
-      console.log(data);
+      await axios.put(`/api/todos`, { todo });
       navigate('/todos');
     } catch (error) {
       console.error(error);

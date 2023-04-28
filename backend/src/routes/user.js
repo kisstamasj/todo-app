@@ -13,8 +13,11 @@ const router = express.Router();
  * Sign up user
  */
 router.post('/api/users/signup', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, confirm_password } = req.body;
 
+  if (password !== confirm_password) {
+    throw new RequestValidationError('The password and confirm password fields dont match.');
+  }
   if (!email) {
     throw new RequestValidationError('Email is required');
   }
@@ -69,7 +72,7 @@ router.post('/api/users/signin', async (req, res) => {
 
   // store cookie object
   setCookie(res, 'currentUser', cookie);
-  res.status(201).send(user);
+  res.status(200).send(user);
 });
 
 /**
@@ -77,7 +80,7 @@ router.post('/api/users/signin', async (req, res) => {
  */
 router.post('/api/users/signout', authorizeUserHandler, async (req, res) => {
   // store cookie object
-  setCookie(res, 'currentUser', null);
+  res.clearCookie('currentUser');
   res.status(201).send({ success: true });
 });
 

@@ -31,7 +31,6 @@ router.post('/api/todos', authorizeUserHandler, async (req, res) => {
  */
 router.get('/api/todos', authorizeUserHandler, async (req, res) => {
   const currentUser = jwt.verify(req.cookies.currentUser, process.env.JWT_KEY);
-
   const todos = await Todo.find({ userId: currentUser.id });
 
   res.status(200).send(todos);
@@ -94,7 +93,7 @@ router.delete('/api/todos/:id', authorizeUserHandler, async (req, res) => {
   }
   await Todo.deleteOne({ _id: id });
 
-  res.status(200).send(todo);
+  res.status(200).send({ success: true });
 });
 
 module.exports = { todosRouter: router };

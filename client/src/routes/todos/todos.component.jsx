@@ -38,7 +38,7 @@ const Todos = () => {
     <Fragment>
       {currentUser && (
         <Fragment>
-          <h1>Todos</h1>
+          <h2>Todos</h2>
           <NewTodoForm />
           {!todos.length ? (
             <span>There are no todos</span>

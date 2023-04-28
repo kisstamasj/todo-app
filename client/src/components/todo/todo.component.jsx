@@ -15,7 +15,7 @@ const Todo = ({ todo }) => {
   const onTodoClickHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put('/api/todos', {
+      await axios.put('/api/todos', {
         todo: { id, title, completed: !completed },
       });
       setTodoCompleted((prev) => !prev);
@@ -27,11 +27,14 @@ const Todo = ({ todo }) => {
   const onDeleteClick = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    try {
-      const { data } = await axios.delete(`/api/todos/${id}`);
-      setTodos(todos.filter((t) => t.id !== id));
-    } catch (error) {
-      console.error(error);
+    const conf = window.confirm('Are you sure to delete?');
+    if (conf) {
+      try {
+        const { data } = await axios.delete(`/api/todos/${id}`);
+        setTodos(todos.filter((t) => t.id !== id));
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
