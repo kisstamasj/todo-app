@@ -9,7 +9,20 @@ A felhasználók regisztráció után fel tudnak venni feladatokat. A feladatoka
 
 ### Környezeti változók beállítása
 
-A backend és client mappában található .env.example fájlból létre kell hozni egy-egy .env fájlt a backend és a client mappa gyökerébe.
+A `backend` és c`lient` mappában található `.env.example` fájlból létre kell hozni egy-egy `.env` fájlt a backend és a client mappa gyökerébe.
+
+#### backend/.env
+```
+NODE_ENV='development'
+JWT_KEY='super-secret'
+MONGO_URI='mongodb://mongo:27017/todo-app'
+PORT=5000
+```
+
+#### client/.env
+```
+REACT_APP_BACKEND_API_URL="http://localhost:5000"
+```
 
 ### Alkalmazás indítása
 
