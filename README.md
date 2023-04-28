@@ -9,7 +9,7 @@ A felhasználók regisztráció után fel tudnak venni feladatokat. A feladatoka
 
 ### Környezeti változók beállítása
 
-A `backend` és c`lient` mappában található `.env.example` fájlból létre kell hozni egy-egy `.env` fájlt a backend és a client mappa gyökerébe.
+A `backend` és `client` mappában található `.env.example` fájlból létre kell hozni egy-egy `.env` fájlt a backend és a client mappa gyökerébe.
 
 #### backend/.env
 ```
