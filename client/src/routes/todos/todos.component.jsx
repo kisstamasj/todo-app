@@ -1,13 +1,21 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import NewTodoForm from '../../components/new-todo-form/new-todo-form.component';
 import Todo from '../../components/todo/todo.component';
 import { TodosContainer } from './todos.styles';
 import { TodosContext } from '../../contexts/todos.context';
 
 import Authenticated from '../../components/authenticated/authenticated.component';
+import { UserContext } from '../../contexts/user.context';
+import { useNavigate } from 'react-router-dom';
 
 const Todos = () => {
   const { todos } = useContext(TodosContext);
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!currentUser) navigate('/');
+  }, [currentUser, navigate]);
 
   return (
     <Authenticated>

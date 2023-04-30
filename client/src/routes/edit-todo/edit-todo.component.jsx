@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import FormInput from '../../components/form-input/form-input.component';
 import Button from '../../components/button/button.component';
@@ -7,6 +7,7 @@ import { ButtonsContainer } from './edit-todo.styles';
 import axios from 'axios';
 import { FiSave } from 'react-icons/fi';
 import Authenticated from '../../components/authenticated/authenticated.component';
+import { UserContext } from '../../contexts/user.context';
 
 const initTodo = {
   id: '',
@@ -18,8 +19,15 @@ const EditTodo = () => {
   const navigate = useNavigate();
   const { todoID } = useParams();
   const [todo, setTodo] = useState(initTodo);
+  const { currentUser } = useContext(UserContext);
+
+  useEffect(() => {
+    if (!currentUser) navigate('/');
+  }, [currentUser, navigate]);
+
   useEffect(() => {
     const fetchTodo = async () => {
+      if (!currentUser) return;
       try {
         const { data } = await axios.get(`/api/todos/${todoID}`);
         setTodo(data);
@@ -28,7 +36,7 @@ const EditTodo = () => {
       }
     };
     fetchTodo();
-  }, [todoID]);
+  }, [todoID, currentUser]);
 
   const handleUpdateClick = async (e) => {
     e.preventDefault();
