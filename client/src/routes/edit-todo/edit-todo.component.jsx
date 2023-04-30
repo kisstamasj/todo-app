@@ -1,12 +1,12 @@
-import { Fragment, useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import FormInput from '../../components/form-input/form-input.component';
 import Button from '../../components/button/button.component';
 import Form from '../../components/form/form.component';
 import { ButtonsContainer } from './edit-todo.styles';
 import axios from 'axios';
-import { UserContext } from '../../contexts/user.context';
 import { FiSave } from 'react-icons/fi';
+import Authenticated from '../../components/authenticated/authenticated.component';
 
 const initTodo = {
   id: '',
@@ -18,7 +18,6 @@ const EditTodo = () => {
   const navigate = useNavigate();
   const { todoID } = useParams();
   const [todo, setTodo] = useState(initTodo);
-  const { currentUser } = useContext(UserContext);
   useEffect(() => {
     const fetchTodo = async () => {
       try {
@@ -46,22 +45,18 @@ const EditTodo = () => {
   };
 
   return (
-    <Fragment>
-      {currentUser && (
-        <Fragment>
-          <h1>Edit Todo</h1>
-          <Form>
-            <FormInput name='title' onChange={handleTitleChange} value={todo.title} />
-            <ButtonsContainer>
-              <Link to={'/todos'}>Cancel</Link>
-              <Button onClick={handleUpdateClick} buttonType={'success'} type='submit'>
-                <FiSave /> Update
-              </Button>
-            </ButtonsContainer>
-          </Form>
-        </Fragment>
-      )}
-    </Fragment>
+    <Authenticated>
+      <h1>Edit Todo</h1>
+      <Form>
+        <FormInput name='title' onChange={handleTitleChange} value={todo.title} />
+        <ButtonsContainer>
+          <Link to={'/todos'}>Cancel</Link>
+          <Button onClick={handleUpdateClick} buttonType={'success'} type='submit'>
+            <FiSave /> Update
+          </Button>
+        </ButtonsContainer>
+      </Form>
+    </Authenticated>
   );
 };
 

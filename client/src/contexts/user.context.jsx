@@ -16,8 +16,8 @@ export const UserProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('currentUser'));
-    setCurrentUserState(user);
+    const user = localStorage.getItem('currentUser');
+    setCurrentUserState(JSON.parse(user));
   }, []);
 
   const value = { currentUser, setCurrentUser };

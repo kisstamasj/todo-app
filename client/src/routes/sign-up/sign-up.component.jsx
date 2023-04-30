@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Button from '../../components/button/button.component';
 import FormInput from '../../components/form-input/form-input.component';
 import Form from '../../components/form/form.component';
@@ -10,6 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ButtonsContainer } from './sign-up.styles';
 import { FiLogIn } from 'react-icons/fi';
 import { GoAlert } from 'react-icons/go';
+import UnAuthenticated from '../../components/unauthenticated/unauthenticated.component';
 
 const defaultFormFields = {
   email: '',
@@ -55,51 +56,47 @@ const SignUp = () => {
   }, [currentUser, navigate]);
 
   return (
-    <Fragment>
-      {!currentUser && (
-        <Fragment>
-          <h1>Sign up</h1>
-          <H4>Create your account</H4>
-          <Form onSubmit={handleSubmit}>
-            <FormInput
-              required
-              type='email'
-              name='email'
-              label={'Email'}
-              onChange={handleChange}
-              value={formFields.email}
-            />
-            <FormInput
-              required
-              type='password'
-              name='password'
-              label={'Password'}
-              onChange={handleChange}
-              value={formFields.password}
-            />
-            <FormInput
-              required
-              type='password'
-              name='confirm_password'
-              label={'Confirm password'}
-              onChange={handleChange}
-              value={formFields.confirm_password}
-            />
-            {errors && (
-              <Alert type='danger'>
-                <GoAlert /> {errors}
-              </Alert>
-            )}
-            <ButtonsContainer>
-              <Link to={'/'}>Back to login</Link>
-              <Button buttonType={'primary'} type='submit'>
-                <FiLogIn /> Sign up
-              </Button>
-            </ButtonsContainer>
-          </Form>
-        </Fragment>
-      )}
-    </Fragment>
+    <UnAuthenticated>
+      <h1>Sign up</h1>
+      <H4>Create your account</H4>
+      <Form onSubmit={handleSubmit}>
+        <FormInput
+          required
+          type='email'
+          name='email'
+          label={'Email'}
+          onChange={handleChange}
+          value={formFields.email}
+        />
+        <FormInput
+          required
+          type='password'
+          name='password'
+          label={'Password'}
+          onChange={handleChange}
+          value={formFields.password}
+        />
+        <FormInput
+          required
+          type='password'
+          name='confirm_password'
+          label={'Confirm password'}
+          onChange={handleChange}
+          value={formFields.confirm_password}
+        />
+        {errors && (
+          <Alert type='danger'>
+            <GoAlert /> {errors}
+          </Alert>
+        )}
+        <ButtonsContainer>
+          <Link to={'/'}>Back to login</Link>
+          <Button buttonType={'primary'} type='submit'>
+            <FiLogIn /> Sign up
+          </Button>
+        </ButtonsContainer>
+      </Form>
+    </UnAuthenticated>
   );
 };
 
