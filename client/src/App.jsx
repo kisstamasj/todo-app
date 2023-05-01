@@ -14,7 +14,7 @@ const App = () => {
           <Route index={true} element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/todos' element={<Todos />} />
-          <Route path='/todos/edit/:todoID' element={<EditTodo />} />
+          <Route path='/todos/:todoID' element={<EditTodo />} />
         </Route>
       </Routes>
     </AppContainer>

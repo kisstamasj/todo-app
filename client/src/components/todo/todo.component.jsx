@@ -41,7 +41,7 @@ const Todo = ({ todo }) => {
   const onEditClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    navigate(`/todos/edit/${id}`);
+    navigate(`/todos/${id}`);
   };
 
   return (
