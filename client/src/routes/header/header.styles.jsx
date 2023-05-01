@@ -2,12 +2,14 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
   display: flex;
-  width: 100%;
   justify-content: center;
   align-items: center;
   background-color: #f2f2f2;
   padding: 5px 15px;
   border-radius: 3px;
+  margin: -15px;
+  width: calc(100% + 30px);
+  margin-bottom: 20px;
   &.signedin {
     justify-content: space-between;
   }
