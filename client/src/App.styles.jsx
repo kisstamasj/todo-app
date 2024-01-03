@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const AppContainer = styled.div`
   margin: 30px auto;
@@ -8,11 +8,10 @@ export const AppContainer = styled.div`
   border-radius: 3px;
 
   @media (max-width: 375px) {
-    width: 350px;
+    width: 100%;
     margin: 5px auto;
   }
   @media (max-width: 320px) {
-    width: 300px;
     margin: 5px auto;
   }
 `;
