@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const BaseButton = styled.button`
   display: flex;
@@ -19,6 +19,7 @@ export const BaseButton = styled.button`
   font-weight: 100;
   transition: 300ms ease all;
   border-radius: 3px;
+  width: 100%;
   &:hover {
     background-color: white;
     border: 1px solid black;

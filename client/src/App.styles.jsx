@@ -9,9 +9,7 @@ export const AppContainer = styled.div`
 
   @media (max-width: 375px) {
     width: 100%;
-    margin: 5px auto;
-  }
-  @media (max-width: 320px) {
+    height: 100dvh;
     margin: 5px auto;
   }
 `;
